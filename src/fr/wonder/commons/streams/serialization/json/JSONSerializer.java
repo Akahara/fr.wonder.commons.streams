@@ -12,8 +12,8 @@ import java.util.Map.Entry;
 import fr.wonder.commons.exceptions.SerializationException;
 import fr.wonder.commons.streams.serialization.SerializedText;
 import fr.wonder.commons.streams.serialization.Serializer;
-import fr.wonder.commons.utils.PrimitiveUtils;
-import fr.wonder.commons.utils.ReflectUtils;
+import fr.wonder.commons.systems.reflection.PrimitiveUtils;
+import fr.wonder.commons.systems.reflection.ReflectUtils;
 import fr.wonder.commons.utils.StringUtils;
 
 public class JSONSerializer implements Serializer<JSONObject, String> {
@@ -98,7 +98,7 @@ public class JSONSerializer implements Serializer<JSONObject, String> {
 		else if(clazz == JSONArray.class)
 			writeArray(sb, indent+1, (JSONArray) o);
 		else if(clazz == String.class)
-			sb.append('"' + StringUtils.escape(o.toString()) + '"');
+			sb.append('"' + StringUtils.escape(o.toString(), '"') + '"');
 		else if(PrimitiveUtils.isPrimitiveType(clazz))
 			sb.append(o.toString());
 		else

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fr.wonder.commons.exceptions.SerializationException;
-import fr.wonder.commons.utils.ReflectUtils;
+import fr.wonder.commons.systems.reflection.ReflectUtils;
 
 class SerializedClass<T> {
 	
